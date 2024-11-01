@@ -2,6 +2,7 @@ from http.client import HTTPSConnection
 from sys import stderr 
 from json import dumps 
 from time import sleep 
+from win11toast import toast
 import json
 #Load Config
 with open('./config.json') as f:
@@ -11,6 +12,7 @@ with open('./config.json') as f:
 channelid = c['channelid'] #modify this in config.json
 token = c['token'] #modify this in config.json
 message = c['message'] #modify this in config.json
+message2 = c['message2']
 header_data = { 
 	"content-type": "application/json", 
 	"user-agent": "discordapp.com", 
@@ -37,14 +39,24 @@ def send_message(conn, channel_id, message_data):
         stderr.write("Error\n") 
  
 def main(): 
+	toast('Sent work🐍')
 	message_data = { 
 		"content": message, 
 		"tts": "false"
 	} 
  
 	send_message(get_connection(), channelid, dumps(message_data)) 
+def main2(): 
+	toast('Sent collect🐍', 'Click to open url', on_click='https://www.youtube.com/watch?v=BF5I3Sp4XTg')
+	message_data = { 
+		"content": message2, 
+		"tts": "false"
+	} 
  
+	send_message(get_connection(), channelid, dumps(message_data)) 
+
 if __name__ == '__main__': 
 	while True:    
-		main()      
-		sleep(3600) #How often the message will be sent (in seconds), every 1 hour = 3600
+		main()
+		main2()
+		sleep(21600) #How often the message will be sent (in seconds), every 1 hour = 3600
