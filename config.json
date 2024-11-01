@@ -1,10 +1,11 @@
 {
     "Config": [
-        {
-            "token": "Insert your Discord Token here",
-            "channelid": "Insert the ID of the channel in which you want to send your message",
-            "message": " Write your message in Discord format meaning use word formatting tools like # for Heading, ** for Bold, and so on..."
-         }
+      {
+        "channelid": "868928821380939816",
+        "message": "",
+        "message2": "Array is preferred but for now it gonna be text",
+        "token": "Token for User."
+      }
     ]
 
 }
